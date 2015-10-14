@@ -1,5 +1,5 @@
 //Nicole Snyder
-//CSE2 
+//CSE002 
 //hw6 CheckDigit
 //prompt digit to enter ten digit isbn
 //if number is not valid ISBN, determine a check digit that would make the number a valid ISBN
