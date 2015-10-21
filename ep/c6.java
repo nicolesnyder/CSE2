@@ -4,36 +4,38 @@ public class c6{
     public static void main(String[] args){
         Scanner myScanner = new Scanner (System.in);
 
-System.out.println("Enter an integer, the inpur ends it it is 0: ");
-int positive=0;
-int negative=0;
-int total=0;
-double average=0.0;
-int value;
-int numOfValues=0;
+//(Repeat additions) Listing 4.4, SubtractionQuizLoop.java, generates 
+//five ran- dom subtraction questions. Revise the program to generate 
+//ten random addition questions for two integers between 1 and 15. 
+//Display the correct count and test time
 
-do{
-    value=myScanner.nextInt();
-    if (value>0){
-        positive++;
-        numOfValues++;
-        total+=value;
-    }
-    else if(value<0){
-        negative++;
-        numOfValues++;
-        total+=value;
-    }
+final int numOfQuestions=10;
+int correct=0;
+int count=0;
+long startTime=System.currentTimeMillis();
+String output= " ";
+
+while (count<numOfQuestions){
+    int num1=(int)(Math.random()*15) +1;
+    int num2=(int)(Math.random()*15) +1;
+
+System.out.print("What is " +num1+ "+" +num2+ "?");
+int answer=myScanner.nextInt();
+
+if(answer==(num1+num2)){
+    System.out.println("Right!");
+    correct++;
 }
+else
+    System.out.println("Your answer is wrong. The correct answer is " +(num1+num2));
+    count++;
+    output+= "\n" +num1+ "+" +num2+ "=" +answer+ ((num1 - num2 == answer) ? " correct" : " wrong");
 
-while(value!=0);
-average=total/(numOfValues*1.0);
+}
+long endTime=System.currentTimeMillis();
+long testTime=endTime-startTime;
 
-System.out.println("The number of positives is " +positive);
-System.out.println("The number of negatives is " +negative);
-System.out.println("The toal is "+ total);
-System.out.println("The average is "+average);
-    
+System.out.println("Corret count is " +correct+ "\nTest time is " +testTime/1000+ "seconds\n" +output);
 
 }
 }
