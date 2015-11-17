@@ -1,49 +1,43 @@
-import java.util.Scanner;
-    public class lab11 {
-        public static void main(String args[]) {
-        Scanner myScanner= new Scanner(System.in);
-       
 //Create two integer arrays (array1 and array2) of size 5000.
 //Fill array1 with random integers between 0 and 100000
 //Use linear search to print out the minimum and maximum values of array1.
+
+import java.util.*;
+    public class lab11 {
+        public static void main(String args[]) {
+        Scanner myScanner= new Scanner(System.in);
+        
+        int [] array1= new int [5000];
+        for(int i=0; i<array1.length; i++){
+            array1[i]=(int)(Math.random()*100000);
+        }
+        int max=array1[0];
+        int min=array1[0];
+        for(int i=0; i<array1.length; i++){
+            if(max<array1[i]){
+                max=array1[i];
+            }
+            if(min>array1[i]){
+                min=array1[i];
+            }
+        }
+        System.out.println("Max of array1 is: " +max);
+        System.out.println("Min of array1 is: " +min);
 //Add increasing random numbers to array2. (How you do this is an intentional puzzle).
 //Print out the minimum and maximum values of array2. (hint you can do this without serious effort at search)
+        int [] array2 = new int[5000];
+        int num=0;
+        for(int i=0; i<array2.length; i++){
+            array2[i]=(int)(Math.random()*1000)+num;
+            num=array2[i];
+        }
+        System.out.println("Max of array2 is: " +array2[4999]);
+        System.out.println("Min of array2 is: " +array2[0]);
+        
 //Prompt the user to enter an int >= 0, and exit the program if they do not enter an int >= 0.
 //Use binary search to search the array for the inputted value.
 //Say if the number was found or not found.
 //If the number was not found, print out the numbers below and above the searched for number (or if there are none, state “none”)
-
-int [] array1 = new int [5000];
-int [] array2 = new int [5000];
-
-for (int i=0; i<array1.length; i++){
-    array1[i]=(int)(Math.random()*100000);
-}
-
-int min= 100001;
-int max=-1;
-
-for(int i=0; i<5000; i++){
-    if(array1[i]<min){
-        min=array1[i];
-    }
-    if(array1[i]>max){
-        max=array1[i];
-    }
-}
-
-System.out.println("The max of array 1 is: " +max);
-System.out.println("The min of array 1 is: " +min);
-
-int num=0;
-for(int i=0; i<5000; i++){
-    array2[i]=(int)(Math.random()*1000)+num;
-    num=array2[i];
-}
-
-System.out.println("The max of array 2 is: " +array2[4999]);
-System.out.println("The min of array 2 is: " +array2[0]);
-
 int key=0;
 System.out.print("Please enter an integer: ");
 

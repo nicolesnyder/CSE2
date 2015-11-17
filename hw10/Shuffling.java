@@ -46,7 +46,7 @@ public class Shuffling{ //define the class
         int size=array.length; //measures the size of the array
         int value;
         String cards="";
-        for(int j=0; j<100; j++){
+        for(int j=0; j<size; j++){
             value=(int)(Math.random()*52); //randomly generates the cards
             cards=array[j%52];
             array[j%52]=array[value];
